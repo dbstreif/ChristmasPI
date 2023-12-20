@@ -38,4 +38,8 @@ def christmas_special(module: APA102) -> None:
 
 if __name__ == "__main__":
     module = APA102(led_count=60)
-    christmas_special(module)
+    module.set_pixel(0, 0, 255, 0)
+    module.show()
+    sleep(3)
+    module.clear_strip()
+    #christmas_special(module)

@@ -23,7 +23,8 @@ class APA102():
             buffer.append(0b00000000)
             
         for _ in range(self.led_count):
-            buffer += [0b11100000 | 31 for i in range(self.buf_size)]
+            buffer += [0b11111111]
+            buffer += [0b00000000 for i in range(self.buf_size - 1)]
         
         for i in range(self.eof_length):
             buffer.append(0b11111111)

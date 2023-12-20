@@ -68,12 +68,13 @@ def christmas_special2(module: APA102) -> None:
             
 def whiteflash(module: APA102) -> None:
     module.clear_strip
-    module.set_global_brightness(.1)
+    module.set_global_brightness(1)
     while True:
         module.set_pixel_global(255, 255, 255)
         module.show()
-        sleep(.4)
+        sleep(1)
         module.clear_strip()
+        sleep(1)
 
 
 
@@ -88,5 +89,5 @@ def whiteflash(module: APA102) -> None:
 if __name__ == "__main__":
     module = APA102(led_count=60)
     #christmas_special(module)
-    #christmas_special2(module)
-    whiteflash(module)
+    christmas_special2(module)
+    #whiteflash(module)

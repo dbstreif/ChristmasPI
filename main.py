@@ -14,7 +14,8 @@ def christmas_special(module: APA102) -> None:
                 else:
                     module.set_pixel(i, 255, 0, 0)
                     module.show()
-                    module.clear_strip()
+                    sleep(.5)
+                    module.clear_pixel(i)
                     module.set_pixel(i - 1, 0, 255, 0)
                     module.show()
                     

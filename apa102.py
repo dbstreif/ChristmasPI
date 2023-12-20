@@ -77,6 +77,10 @@ class APA102():
             self.set_pixel(i, 0, 0, 0)
         self.show()
         
+    def clear_pixel(self, pixel: int):
+        self.set_pixel(pixel, 0, 0, 0)
+        self.show()
+        
         
 if __name__ == "__main__":
     apa102 = APA102(led_count=60)

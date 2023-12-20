@@ -12,7 +12,6 @@ class APA102():
         self.buffer = self.buffer_init()
             
         #initialize SPIDEV
-        
         self._spi = SpiDev(0, self.chipselect)
         self._spi.max_speed_hz = self.max_speed_hz
         

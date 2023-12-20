@@ -1,11 +1,39 @@
-from spidev import SpiDev
+from apa102 import APA102
+from time import sleep
 
-spi = SpiDev()
-spi.open(0, 1)
-spi.max_speed_hz = 4000
-msg = [0b00000000000000000000000000000000, 0b11100000000000000000000000000, 0b11111111111111111111111111111111]
+def christmas_special(module: APA102) -> None:
+    module.clear_strip()
+    i = 0
+    while True:
+        if i == 0:
+            for led in range(60):
+                if led == 0:
+                    module.set_pixel(i, 255, 0, 0)
+                    module.show()
+                
+                else:
+                    module.set_pixel(i, 255, 0, 0)
+                    module.show()
+                    module.clear_strip()
+                    module.set_pixel(i - 1, 0, 255, 0)
+                    module.show()
+                    
+                sleep(.5)
+                module.clear_strip()
+            i += 1
 
-while True:
-    spi.xfer(msg)
 
-spi.close()
+
+
+
+
+
+
+
+
+
+
+
+
+if __name__ == "__main__":
+    module = APA102(led_count=60)

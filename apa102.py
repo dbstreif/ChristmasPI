@@ -51,6 +51,19 @@ class APA102():
         else:
             offset = self.sof_length + (x * 4) + 1
             self.buffer[offset:offset + 3] = [b, g, r]
+            
+    def set_pixel_global(self, r: int, g: int, b:int):
+        """Set global pixel color
+
+        :param r: amount of red (0 to 255)
+        :param g: amount of green (0 to 255)
+        :param b: amount of blue (0 to 255)
+
+        """
+        self.clear_strip()
+        for i in range(self.led_count):
+            self.set_pixel(i, r, g, b)
+        
         
     def set_brightness(self, x: int, brightness: float):
         """Set global brightness of a single pixel

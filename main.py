@@ -8,18 +8,19 @@ def christmas_special(module: APA102) -> None:
         if i == 0:
             for led in range(60):
                 if led == 0:
-                    module.set_pixel(i, 255, 0, 0)
+                    module.set_pixel(led, 255, 0, 0)
                     module.show()
                 
-                elif led > 0:
-                    module.set_pixel(i, 255, 0, 0)
+                else:
+                    print("flow control in progress")
+                    module.set_pixel(led, 255, 0, 0)
                     module.show()
-                    sleep(.5)
-                    module.clear_pixel(i)
-                    module.set_pixel(i - 1, 0, 255, 0)
+                    sleep(.2)
+                    module.clear_pixel(led)
+                    module.set_pixel(led - 1, 0, 255, 0)
                     module.show()
                     
-                sleep(.5)
+                sleep(.2)
                 module.clear_strip()
             i += 1
 
@@ -38,8 +39,4 @@ def christmas_special(module: APA102) -> None:
 
 if __name__ == "__main__":
     module = APA102(led_count=60)
-    module.set_pixel(0, 0, 255, 0)
-    module.show()
-    sleep(3)
-    module.clear_strip()
-    #christmas_special(module)
+    christmas_special(module)

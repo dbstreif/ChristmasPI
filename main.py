@@ -51,20 +51,23 @@ def christmas_special2(module: APA102) -> None:
                 module.set_pixel(led, 255, 0, 0)
                 module.set_pixel(led_count - led, 255, 0, 0)
                 module.show()
+                module.clear_pixel(led)
+                module.clear_pixel(led_count - led)
             
             else:
                 module.set_pixel(led, 255, 0, 0)
                 module.set_pixel(led_count - led, 255, 0, 0)
                 module.show()
-                sleep(.01)
+                #sleep(.01)
                 module.clear_pixel(led)
                 module.clear_pixel(led_count - led)
                 module.set_pixel(led_count - led + 1, 0, 255, 0)
                 module.set_pixel(led - 1, 0, 255, 0)
                 module.show()
+                module.clear_pixel(led_count - led + 1)
+                module.clear_pixel(led - 1)
                 
-            sleep(.01)
-            module.clear_strip()
+            #sleep(.01)
             
 def whiteflash(module: APA102) -> None:
     module.clear_strip
@@ -87,7 +90,7 @@ def whiteflash(module: APA102) -> None:
 
 
 if __name__ == "__main__":
-    module = APA102(led_count=60)
+    module = APA102(led_count=60, spi_max_speed_hz=1000000)
     #christmas_special(module)
     christmas_special2(module)
     #whiteflash(module)

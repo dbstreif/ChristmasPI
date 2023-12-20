@@ -85,10 +85,5 @@ class APA102():
         
 if __name__ == "__main__":
     apa102 = APA102(led_count=60)
-    apa102.clear_strip()
-    apa102.set_brightness(59, .1)
-    apa102.set_brightness(58, 1)
-    apa102.set_pixel(59, 0, 0, 255)
-    apa102.set_pixel(58, 0, 0, 255)
-    apa102.show()
+    apa102.set_pixel(0, 0, 0, 255)
     apa102.clear_strip()

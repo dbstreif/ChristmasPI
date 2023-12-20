@@ -11,7 +11,7 @@ def christmas_special(module: APA102) -> None:
                     module.set_pixel(i, 255, 0, 0)
                     module.show()
                 
-                else:
+                elif led > 0:
                     module.set_pixel(i, 255, 0, 0)
                     module.show()
                     sleep(.5)

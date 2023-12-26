@@ -82,7 +82,7 @@ def whiteflash(module: APA102) -> None:
 def rainbowblink(module: APA102) -> None:
     module.clear_strip()
     lediter = 0
-    for led in range(60):
+    for led in range(module.led_count):
         if lediter == 0:
             module.set_pixel(led, 255, 0, 0)
         elif lediter == 1:
@@ -97,18 +97,23 @@ def rainbowblink(module: APA102) -> None:
             module.set_pixel(led, 0, 0, 255)
         elif lediter == 6:
             module.set_pixel(led, 127, 0, 255)
+            
+        module.show()
         
         if lediter == 6:
             lediter = 0
         else:
             lediter += 1
     
+    
     while True:
         for brightness in range(0, 10):
             module.set_brightness_global((10 - brightness) / 10)
+            module.show()
         
         for brightness in range(0, 10):
             module.set_brightness_global((brightness) / 10)
+            module.show()
 
 
 
@@ -119,7 +124,7 @@ def rainbowblink(module: APA102) -> None:
 
 
 if __name__ == "__main__":
-    module = APA102(led_count=60, spi_max_speed_hz=200000)
+    module = APA102(led_count=60, spi_max_speed_hz=10000)
     #christmas_special(module)
     #christmas_special2(module)
     #whiteflash(module)

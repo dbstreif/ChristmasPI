@@ -80,7 +80,7 @@ class APA102():
             self.buffer[offset] = 0b11100000 | int(31 * brightness)
             
         
-    def set_global_brightness(self, brightness: float):
+    def set_brightness_global(self, brightness: float):
         for i in range(self.led_count):
             self.set_brightness(i, brightness)
         
